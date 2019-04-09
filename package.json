@@ -2,6 +2,8 @@
   "name": "hello-electron-react-ts",
   "version": "0.1.0",
   "private": true,
+  "author": "James Robert Perih <james@hotdang.ca>",
+  "description": "Uploads files to the Hot Dang Interactive Personal Cloud",
   "dependencies": {
     "form-data": "^2.3.3",
     "react": "^16.8.6",
@@ -13,8 +15,12 @@
   "main": "public/electron.js",
   "build": {
     "appId": "com.electron.electron-with-create-react-app",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
     "directories": {
-      "buildResources": "public"
+      "buildResources": "assets"
     }
   },
   "scripts": {
@@ -26,7 +32,8 @@
     "electron-start": "node src/start-react",
     "react-start": "react-scripts start",
     "pack": "build --dir",
-    "dist": "npm run build && build",
+    "electron-pack": "build --em.main=build/electron.js",
+    "dist": "npm run build && npm run electron-pack",
     "postinstall": "install-app-deps"
   },
   "eslintConfig": {
