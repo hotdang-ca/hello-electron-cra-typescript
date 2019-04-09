@@ -1,11 +1,10 @@
-// @ts-ignore 
 const electron = require('electron');
-
 const { app, ipcMain, BrowserWindow } = electron;
 
-const fs = require('fs');
 const path = require('path');
 const url = require('url');
+const fs = require('fs');
+
 const FormData = require('form-data');
 
 let mainWindow;
