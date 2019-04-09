@@ -16,8 +16,7 @@
   "build": {
     "appId": "com.electron.electron-with-create-react-app",
     "files": [
-      "build/**/*",
-      "node_modules/**/*"
+      "build/**/*"
     ],
     "directories": {
       "buildResources": "assets"
@@ -33,7 +32,8 @@
     "react-start": "react-scripts start",
     "pack": "build --dir",
     "electron-pack": "build  --config.extraMetadata.main=build/electron.js",
-    "dist": "npm run build && npm run electron-pack",
+    "dist:win": "npm run build && npm run electron-pack --win",
+    "dist:mac": "npm run build && npm run electron-pack --mac",
     "postinstall": "install-app-deps"
   },
   "eslintConfig": {
