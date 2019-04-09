@@ -32,7 +32,7 @@
     "electron-start": "node src/start-react",
     "react-start": "react-scripts start",
     "pack": "build --dir",
-    "electron-pack": "build --em.main=build/electron.js",
+    "electron-pack": "build  --config.extraMetadata.main=build/electron.js",
     "dist": "npm run build && npm run electron-pack",
     "postinstall": "install-app-deps"
   },
