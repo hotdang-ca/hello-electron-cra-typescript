@@ -1,17 +1,21 @@
-// Start Electron
-
 // @ts-ignore 
 const electron = require('electron');
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
 
+const { app, ipcMain, BrowserWindow } = electron;
 const path = require('path');
 const url = require('url');
 
 let mainWindow;
 
 const createWindow = () => {
-    mainWindow = new BrowserWindow({ width: 800, height: 600 });
+    mainWindow = new BrowserWindow({
+        webPreferences: {
+            nodeIntegration: false,
+            preload: __dirname + '/preload.js'
+        },
+        width: 800,
+        height: 600,
+    });
 
     mainWindow.loadURL(
         process.env.ELECTRON_START_URL || 
@@ -39,4 +43,8 @@ app.on('activate', () => {
     if (mainWindow === null) {
         createWindow();
     }
-})
+});
+
+const sendToWeb = (tag, data) => {
+    mainWindow.webContents.send(tag, data);
+};

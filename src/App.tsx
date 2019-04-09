@@ -5,8 +5,8 @@ import logo from './logo.svg';
 
 import './App.css';
 
-class App extends Component {
-  render() {
+//@ts-ignore
+const { ipcRenderer } = window;
     return (
       <div className="App">
         <header className="App-header">
