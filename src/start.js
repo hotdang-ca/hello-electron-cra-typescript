@@ -19,8 +19,8 @@ const createWindow = () => {
             nodeIntegration: false,
             preload: __dirname + '/preload.js'
         },
-        width: 400,
-        height: 350,
+        width: 250,
+        height: 270,
         frame: false,
     });
 
